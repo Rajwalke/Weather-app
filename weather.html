@@ -11,13 +11,13 @@
     <div class="container font-sans bgimg bg-cover bg-center bg-no-repeat text-white">
         <!-- search bar section  -->
         <div class="upperSection flex flex-wrap justify-center py-16">
-            <input type="text"  placeholder="Enter the Location" class="search text-2xl p-5 mx-6 border-2 border-white rounded-lg text-white bg-inherit">
-            <button class="border-2 border-white rounded-lg bg-inherit text-white my-3 "><i class="fa-solid fa-magnifying-glass px-5 "></i></button>
+            <input type="text"  placeholder="Enter the Location" class="search text-2xl font-semibold p-5 mx-6 border-2 border-white rounded-lg text-white bg-inherit">
+            <button class="searchIcon border-2 border-white rounded-lg bg-inherit text-white my-3 "><i class="fa-solid fa-magnifying-glass px-5 "></i></button>
         </div>
 
         <!-- main body  -->
          <div class="card flex flex-col items-center  mx-10 py-2 px-6">
-            <img src="allimages/cloud.png" alt="clearimg" class="wheaterImg w-64 inline-block">
+           <span class="wheaterImg"><img src="allimages/cloud.png" alt="clearimg" class="w-64 inline-block"></span> 
             <p class="tempreature text-5xl py-5 font-bold">28°C</p>
             <p class="weatherinfo font-semibold text-4xl text-center">Scattered Clouds</p>
          </div>
@@ -25,12 +25,18 @@
          <div class="extrainfo flex flex-wrap items-center my-6 mx-3 px-8 py-4 text-center justify-around ">
             <div class="humidity py-2">
               <span class=""><i class="fa-solid fa-droplet fa-bounce text-5xl px-3"></i></span>
-                <span class="text-4xl font-semibold">51% </span>
+                <span class="humidityval text-4xl font-semibold">51% </span>
                 <span class="block text-right text-2xl font-semibold ml-20">Humidity</span>
             </div>
             <div class="windspeed py-2">
+
+                <span><i class="fa-solid fa-stopwatch fa-shake text-5xl px-3"></i></span>
+                <span class="presuure text-3xl font-semibold">10002 Mb</span>
+                <span class="block text-center ml-8 text-2xl font-semibold">Pressure</span>
+            </div>
+            <div class="windspeed py-2">
                 <span><i class="fa-solid fa-wind fa-beat text-4xl px-3"></i></span>
-                <span class="text-3xl font-semibold" >4.63Km/H</span>
+                <span class="windSpeed text-3xl font-semibold">4.63Km/H</span>
                 <span class="block text-right text-2xl font-semibold">Wind Speed</span>
             </div>
          </div>
