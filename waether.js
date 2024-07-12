@@ -2,7 +2,7 @@ const searchInput=document.querySelector(".search");
 const searchIcon=document.querySelector(".searchIcon");
 const weather_Image=document.querySelector(".wheaterImg");
 const current_Temperature=document.querySelector(".tempreature");
-const currengt_Info=document.querySelector(".weatherinfo");
+const current_Info=document.querySelector(".weatherinfo");
 const humidity=document.querySelector(".humidityval");
 const wind_Speed=document.querySelector(".windSpeed");
 const presuure=document.querySelector(".presuure");
@@ -12,9 +12,21 @@ async function checkWeather(cityName){
     const api_url=`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api_key}`;
 
     const weather_data=await fetch(`${api_url}`).then(Response=>Response.json());
+    if(weather_data.message == "city not found"){
+        // weather_data.cod == "404" alternate option
+        weather_Image.innerHTML=`<img src=${"allimages/404.png"} alt="clearimg" class="w-64 inline-block"></img>`;
+        current_Temperature.innerHTML="Sorry......";
+        current_Info.innerHTML="Location Not Found";
+        humidity.innerHTML="0";
+        wind_Speed.innerHTML="0";
+        presuure.innerHTML="0";
+        console.log("Error");
+        return ;
+    }
     console.log(weather_data);
     console.log(weather_data.main.temp);
     console.log(weather_data.wind.speed);
+
     const apitemp= Math.round(weather_data.main.temp - 273.15);
     current_Temperature.innerHTML=`${apitemp}°C`;
 
@@ -23,7 +35,7 @@ async function checkWeather(cityName){
 
     presuure.innerHTML=`${weather_data.main.pressure} Mb`
 
-    currengt_Info.innerHTML=`${weather_data.weather[0].description}`
+    current_Info.innerHTML=`${weather_data.weather[0].description}`
     console.log(weather_data.weather[0].description);
 
     if(weather_data.weather[0].main=="Clouds"){
